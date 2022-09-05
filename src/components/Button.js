@@ -15,7 +15,7 @@ const getStyleName = (btn) => {
 const Button = ({ value }) => {
   const { calc, setCalc } = useContext(CalcContext);
 
-  const commaClick = () => {
+  const dotClick = () => {
     setCalc({
       ...calc,
       num: !calc.num.toString().includes(".") ? calc.num + value : calc.num,
@@ -69,7 +69,7 @@ const Button = ({ value }) => {
     }
   };
 
-  const persenClick = () => {
+  const percenClick = () => {
     setCalc({
       num: calc.num / 100,
       res: calc.res / 100,
@@ -87,14 +87,14 @@ const Button = ({ value }) => {
 
   const handleBtnClick = () => {
     const results = {
-      ".": commaClick,
+      ".": dotClick,
       C: resetClick,
       "/": signClick,
       x: signClick,
       "-": signClick,
       "+": signClick,
       "=": equalsClick,
-      "%": persenClick,
+      "%": percenClick,
       "+-": invertClick,
     };
     if (results[value]) {
