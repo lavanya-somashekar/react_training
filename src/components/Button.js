@@ -4,7 +4,7 @@ import { CalcContext } from "../context/CalcContext";
 const getStyleName = (btn) => {
   const className = {
     "=": "equals",
-    X: "opt",
+    x: "opt",
     "-": "opt",
     "+": "opt",
     "/": "opt",
