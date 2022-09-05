@@ -4,7 +4,7 @@ import { CalcContext } from "../context/CalcContext";
 const getStyleName = (btn) => {
   const className = {
     "=": "equals",
-    x: "opt",
+    X: "opt",
     "-": "opt",
     "+": "opt",
     "/": "opt",
@@ -15,18 +15,17 @@ const getStyleName = (btn) => {
 const Button = ({ value }) => {
   const { calc, setCalc } = useContext(CalcContext);
 
-  // User click comma
   const commaClick = () => {
     setCalc({
       ...calc,
       num: !calc.num.toString().includes(".") ? calc.num + value : calc.num,
     });
   };
-  // User click C
+
   const resetClick = () => {
     setCalc({ sign: "", num: 0, res: 0 });
   };
-  // User click number
+
   const handleClickButton = () => {
     const numberString = value.toString();
 
@@ -42,7 +41,7 @@ const Button = ({ value }) => {
       num: numberValue,
     });
   };
-  // User click operation
+
   const signClick = () => {
     setCalc({
       sign: value,
@@ -50,7 +49,7 @@ const Button = ({ value }) => {
       num: 0,
     });
   };
-  // User click equals
+
   const equalsClick = () => {
     if (calc.res && calc.num) {
       const math = (a, b, sign) => {
@@ -69,7 +68,7 @@ const Button = ({ value }) => {
       });
     }
   };
-  // User click persen
+
   const persenClick = () => {
     setCalc({
       num: calc.num / 100,
@@ -77,7 +76,7 @@ const Button = ({ value }) => {
       sign: "",
     });
   };
-  // User click invert button
+
   const invertClick = () => {
     setCalc({
       num: calc.num ? calc.num * -1 : 0,
